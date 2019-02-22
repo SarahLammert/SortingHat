@@ -24,11 +24,9 @@ public class MergeSortR extends PapaSort
 	
 	private void merge(int start1, int end1, int start2, int end2)
 	{
-		
 		int s1 = start1;
 		int s2 = start2;
-		
-		//Temp arrray
+
 		int[] temp = new int[(end1-start1 + 1) + (end2-start2 + 1)];
 		int tPointer = 0;
 		

@@ -35,7 +35,7 @@ public abstract class PapaSort
 		return myList;
 	}
 	
-	//Adding additional interface to get numbers
+	//Setters and getters
 	public int getElement(int whichE)
 	{
 		return myList[whichE];
