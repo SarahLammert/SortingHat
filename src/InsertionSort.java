@@ -7,6 +7,7 @@ public class InsertionSort extends PapaSort {
 		
 	}
 	
+	@Override
 	public void executeAlgorithm()
 	{
 		for(int i = 1; i < super.getLength(); i++)

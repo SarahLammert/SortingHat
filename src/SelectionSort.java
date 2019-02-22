@@ -7,7 +7,7 @@ public class SelectionSort extends PapaSort
 		super(l, sortName);
 	}
 	
-	//Doing the selection sort
+	@Override
 	public void executeAlgorithm()
 	{
 		for(int j = 0; j < super.getList().length-1; j++)

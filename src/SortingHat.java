@@ -5,32 +5,62 @@ public class SortingHat
 	public static void main(String [] args)
 	{
 		//Determines how many #s we want
-		int howMany = 100000;
-
-		//Building our arrays to test
-		int[] nums0 = getDescendingOrder(howMany);
-		int[] nums1 = nums0.clone();
- 		int[] nums2 = nums0.clone();
-
-		SelectionSort sSort = new SelectionSort(nums0, "SelectionSort");
-		doTiming(sSort);
+		int howMany = 50;
 		
+		//int[] nums1 = getDescendingOrder(howMany);
+ 		int[] nums2 = getRandom(howMany);
+ 		//int[] nums3 = nums1.clone();
+ 		//int[] nums4 = nums1.clone();
+ 		int[] nums5 = getDescendingOrder(howMany);
+		
+ 		/*
+		SelectionSort sSort = new SelectionSort(nums1, "SelectionSort");
+		doTiming(sSort);
+
 		System.out.println("");
 		
-		BubbleSort bSort = new BubbleSort(nums1, "BubbleSort");
+		*/
+		BubbleSort bSort = new BubbleSort(nums2, "BubbleSort");
 		doTiming(bSort);
 		
-		System.out.println("");
+		//System.out.println("");
 		
-		InsertionSort iSort = new InsertionSort(nums2, "InsertionSort");
+		/*
+		
+		InsertionSort iSort = new InsertionSort(nums3, "InsertionSort");
 		doTiming(iSort);
 		
+		System.out.println("");
+		
+		MergeSortNR mNRSort = new MergeSortNR(nums4, "MergeSort Non-Recursive");
+		doTiming(mNRSort);
+	
+		*/
+		
+		System.out.println("");
+		
+ 		MergeSortR mRSort = new MergeSortR(nums5, "MergeSort Recursive");
+ 		doTiming(mRSort);
+		
+ 		System.out.println("");
+ 		
+ 		if(checkList(nums5))
+ 		{
+ 			System.out.println("I checked new list and its good");
+ 		}
+ 		else
+ 		{
+ 			System.out.println("Something is wrong");
+ 		}
+ 		
+ 		
 	}
 	
 	public static void doTiming(PapaSort s)
 	{
 		if(s.getLength() <= 100)
 		{
+			System.out.println(s);
 			long start0 = System.nanoTime();
 			
 			s.executeAlgorithm();
@@ -52,7 +82,7 @@ public class SortingHat
 			
 			long end1 = System.currentTimeMillis();
 			long theTime1 = end1 - start1;
-			
+
 			System.out.println("Time for " + s.getSortName() + " on " + s.getLength() + " numbers is: " + theTime1 + " milliseconds");
 
 		}
@@ -90,5 +120,20 @@ public class SortingHat
 		}
 		
 		return nList;
+	}
+	
+	public static boolean checkList(int[] l)
+	{
+		
+		boolean b = true;
+		for(int i = 0; i < l.length-1; i++)
+		{
+			if(l[i] > l[i+1])
+			{
+				b = false;
+				break;
+			}
+		}
+		return b;
 	}
 }
